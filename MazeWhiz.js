@@ -1,10 +1,15 @@
 class MazeWhiz {
     constructor(size, algo){
-        this.height = size[1]
-        this.width = size[0]
-        this.algo = algo
-        this.maze = []
-        this.buildMaze()
+        if(size[0] < 10 || size[1] < 10){
+            throw('size has to be at least 10x10')
+        }
+        else{
+            this.width = size[0]
+            this.height = size[1]
+            this.algo = algo
+            this.maze = []
+            this.buildMaze()
+        }
     }
 
     buildMaze(){
@@ -32,7 +37,7 @@ class MazeWhiz {
 
 }
 
-const mazeWhiz = new MazeWhiz([3,5], 'algo')
+const mazeWhiz = new MazeWhiz([13,35], 'algo')
 console.log(mazeWhiz)
 module.exports.MazeWhiz = MazeWhiz
 

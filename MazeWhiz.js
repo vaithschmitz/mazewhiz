@@ -1,19 +1,28 @@
 class MazeWhiz {
     constructor(size, algo){
-        this.size = size
+        this.height = size[1]
+        this.width = size[0]
         this.algo = algo
         this.maze = []
         this.buildMaze()
     }
 
     buildMaze(){
-        for(let i = 0; i < this.size[1]; i++){
-            this.maze.push([])
+        const inner = () => {
+            let innerArr = []
+            for(let i = 0; i < this.width; i++){
+                innerArr.push('x')
+            }
+            return innerArr
         }
+        for(let i = 0; i < this.height; i++){           
+            this.maze.push(inner())
+        }
+
     }
 
 }
 
-let m = new MazeWhiz([3,5], 'ok')
-
 module.exports.MazeWhiz = MazeWhiz
+
+

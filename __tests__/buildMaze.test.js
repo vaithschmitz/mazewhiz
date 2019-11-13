@@ -10,5 +10,8 @@ describe('Building Maze', () => {
             expect(mazeWhiz.maze[i].length).toEqual(3)
         }
     })
+    it('maze has entrance on line 1', () => {
+        expect(mazeWhiz.maze[0]).toContain(1)
+    });
 });
 

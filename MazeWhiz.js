@@ -21,13 +21,18 @@ class MazeWhiz {
             return innerArr
         }
         for(let i = 0; i < this.height; i++){
-            if(i === 0){ // always start first width array with entrance at idx 1
-                let innerArr = []
-                for(let i = 0; i < this.width; i++){
-                    i === 1 ? innerArr.push(1) : innerArr.push(0)
-                }
-                this.maze.push(innerArr)
+            //first array must have entrance
+            if(i === 0){ 
+                let firstArr = new Array(this.width).fill(0)
+                firstArr[1] = 1
+                this.maze.push(firstArr)
             } 
+            // last array must have exit
+            else if(i === this.height -1){
+                let lastArr = new Array(this.width).fill(0)
+                lastArr[Math.floor(Math.random() * this.width)] = 1
+                this.maze.push(lastArr)
+            }
             else{          
             this.maze.push(inner())
             }

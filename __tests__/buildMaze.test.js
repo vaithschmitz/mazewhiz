@@ -18,5 +18,8 @@ describe('Building Maze', () => {
     it('maze has entrance on line 1', () => {
         expect(mazeWhiz.maze[0]).toContain(1)
     });
+    it('maze has exit on final line', () => {
+        expect(mazeWhiz.maze[mazeWhiz.maze.length -1]).toContain(1)
+    });
 });
 
